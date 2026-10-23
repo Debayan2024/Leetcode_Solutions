@@ -1,11 +1,10 @@
 class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
-        freq_num = {}
-        arr = nums
-        for i in range(0, len(arr)):
-            freq_num[arr[i]] = 0
-        j = 0
-        for k in freq_num:
-            arr[j]=k
-            j+=1
-        return j
+    def removeDuplicates(self, nums: list[int]) -> int:
+        if not nums:
+            return 0
+        k = 1
+        for i in range(1, len(nums)):
+            if nums[i] != nums[k - 1]:
+                nums[k] = nums[i]
+                k += 1
+        return k
